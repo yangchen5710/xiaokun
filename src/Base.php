@@ -26,7 +26,7 @@ class Base
     {
         $params = array_merge($options, [
             'appId' => $this->appId,
-            'timestamp' => time(),
+            'timestamp' => round(microtime(true) * 1000), //时间戳，精确到毫秒（13位）
         ]);
 
         $params['sign'] = $this->getSign($params);
@@ -51,6 +51,11 @@ class Base
                 continue;
             }
             $hashStr .= '&'.$key . '=' . $val;
+        }
+
+        // 去除第一个字符（如果它是 &）
+        if (substr($hashStr, 0, 1) === '&') {
+            $hashStr = substr($hashStr, 1);
         }
 
         return hash('sha256', $hashStr . $this->key);
