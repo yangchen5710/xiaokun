@@ -2,10 +2,10 @@
     require_once __DIR__ . '/../vendor/autoload.php';
 
     $host = 'https://www.xiaokunkeji.com';
-    $key = 'ASFDJ_XK';
-    $appId = '31u9t2f6c7fxkbd231h06157crf50fg';
+    $appId = 'ASFDJ_XK';
+    $key = '31u9t2f6c7fxkbd231h06157crf50fg';
 
-    $client = new \Ycstar\Xiaokun\Xiaokun($host, $key, $appId, ['debug' => true]);
+    $client = new \Ycstar\Xiaokun\Xiaokun($host, $key, $appId, ['debug' => false]);
 
 
     $params = [
